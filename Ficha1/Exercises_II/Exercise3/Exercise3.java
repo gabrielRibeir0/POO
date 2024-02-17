@@ -10,7 +10,7 @@ public class Exercise3 {
         System.out.println("Insira o saldo:");
         double saldo = scanner.nextDouble();
 
-        Output output = new Output();
+        Conta output = new Conta();
         String outputString = output.criaDescricaoConta(nome, saldo);
 
         System.out.println(outputString);

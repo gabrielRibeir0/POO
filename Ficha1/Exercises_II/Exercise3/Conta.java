@@ -1,5 +1,5 @@
-public class Output {
-    public Output(){
+public class Conta {
+    public Conta(){
 
     }
 
