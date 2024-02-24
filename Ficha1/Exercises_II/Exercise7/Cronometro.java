@@ -1,13 +1,14 @@
-import java.util.Date;
+import java.time.LocalTime;
 
 public class Cronometro {
     public Cronometro(){
 
     }
 
-    public long tempoGasto(Date data_inicio, Date data_fim){
-        long ms_inicio = data_inicio.getTime();
-        long ms_fim = data_fim.getTime();
-        return ms_fim - ms_inicio;
+    public long tempoGasto(LocalTime data_inicio, LocalTime data_fim){
+        int nano_inicio = data_inicio.getNano();
+        int nano_fim = data_fim.getNano();
+        long ms = (nano_fim - nano_inicio) / 1000000;
+        return ms;
     }
 }
