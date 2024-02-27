@@ -1,5 +1,9 @@
+import java.time.LocalDate;
+
 public class Ficha2 {
+    //Ex 1
     int[] arrayInterno;
+
     public Ficha2(int[] array){
         this.arrayInterno = array;
     }
@@ -10,7 +14,7 @@ public class Ficha2 {
         for (int i = 0; i < this.arrayInterno.length; i++){
             if(this.arrayInterno[i] < min){
                 min = this.arrayInterno[i];
-                }
+            }
         }
 
         return min;
@@ -59,5 +63,18 @@ public class Ficha2 {
         }
 
         return arr;
+    }
+
+    //Ex 2
+    LocalDate[] arrayLocalDate;
+    int nDatasInseridas, capacidadeArrayDatas;
+
+    public Ficha2(){
+        nDatasInseridas = 0;
+        capacidadeArrayDatas = 0;
+    }
+
+    public void insereData(LocalDate data){
+        if
     }
 }
