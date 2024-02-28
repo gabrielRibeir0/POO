@@ -114,4 +114,42 @@ public class Ficha2 {
 
         return str;
     }
+
+    //Ex 3
+    public int[] ordenaArrayCrescente(){
+        for (int i = 0; i < this.arrayInterno.length; i++) {
+            for (int j = i + 1; j < this.arrayInterno.length; j++) {
+                int tmp;
+                if (this.arrayInterno[i] > this.arrayInterno[j]) {
+                    tmp = this.arrayInterno[i];
+                    this.arrayInterno[i] = this.arrayInterno[j];
+                    this.arrayInterno[j] = tmp;
+                }
+            }
+        }
+
+        return this.arrayInterno;
+    }
+
+    public int pesquisaBinariaArray(int x){
+        int first = 0;
+        int last = this.arrayInterno.length - 1;
+        int middle = (first + last) / 2;
+
+        while (first <= last) {
+            if (this.arrayInterno[middle] < x) {
+                first = middle + 1;
+            }
+            else if (this.arrayInterno[middle] == x) {
+                return middle;
+            }
+            else {
+                last = middle - 1;
+            }
+
+            middle = (first + last) / 2;
+        }
+
+        return -1;
+    }
 }
