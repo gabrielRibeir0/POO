@@ -1,8 +1,9 @@
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Ficha2 {
     //Ex 1
-    int[] arrayInterno;
+    private int[] arrayInterno;
 
     public Ficha2(int[] array){
         this.arrayInterno = array;
@@ -66,15 +67,51 @@ public class Ficha2 {
     }
 
     //Ex 2
-    LocalDate[] arrayLocalDate;
-    int nDatasInseridas, capacidadeArrayDatas;
+    private LocalDate[] arrayLocalDate;
+    private int nDatasInseridas;
 
-    public Ficha2(){
+    public Ficha2(int capacidade){
         nDatasInseridas = 0;
-        capacidadeArrayDatas = 0;
+        arrayLocalDate = new LocalDate[capacidade];
     }
 
-    public void insereData(LocalDate data){
-        if
+    public int insereData(LocalDate data){
+        //inserir ordenadamente?
+        if(nDatasInseridas >= this.arrayLocalDate.length) {
+            this.arrayLocalDate = Arrays.copyOf(this.arrayLocalDate, this.arrayLocalDate.length * 2);
+        }
+
+        arrayLocalDate[nDatasInseridas] = data;
+        nDatasInseridas++;
+        return nDatasInseridas - 1;
+    }
+
+    public LocalDate dataMaisProxima(LocalDate data){
+        LocalDate dataMaisProxima = this.arrayLocalDate[0];
+        long menorDiferenca = Math.abs(data.toEpochDay() - arrayLocalDate[0].toEpochDay());
+
+        //mudar se inserir ordenadamente
+        for (int i = 1; i < this.arrayLocalDate.length; i++) {
+            long diferenca = Math.abs(data.toEpochDay() - this.arrayLocalDate[i].toEpochDay());
+            if (diferenca < menorDiferenca) {
+                menorDiferenca = diferenca;
+                dataMaisProxima = this.arrayLocalDate[i];
+            }
+        }
+
+        return dataMaisProxima;
+    }
+
+    public String toString(){
+        String str = "", dataStr;
+        if(nDatasInseridas > 0 ){
+            str = arrayLocalDate[0].toString();
+            for(int i = 1; i < nDatasInseridas; i++) {
+                dataStr = arrayLocalDate[i].toString();
+                str += " | " + dataStr;
+            }
+        }
+
+        return str;
     }
 }
