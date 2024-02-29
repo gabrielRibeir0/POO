@@ -34,7 +34,7 @@ public class Sensor {
     }
 
     public String toString(){
-        return "Pressão: " + pressao;
+        return "Pressão: " + this.pressao;
     }
 
     public Sensor clone() {
