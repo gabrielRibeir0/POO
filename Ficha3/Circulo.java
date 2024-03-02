@@ -3,7 +3,11 @@ public class Circulo {
     private double y;
     private double raio;
 
-    public Circulo(){}
+    public Circulo(){
+        this.x = 0;
+        this.y = 0;
+        this.raio = 0;
+    }
 
     public Circulo(double x, double y, double raio){
         this.x = x;

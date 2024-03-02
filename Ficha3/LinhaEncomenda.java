@@ -6,7 +6,23 @@ public class LinhaEncomenda {
     private int percentagemImposto;
     private int percentagemDesconto;
 
-    public LinhaEncomenda(){}
+    public LinhaEncomenda(){
+        this.referencia = "";
+        this.descricaoProduto = "";
+        this.precoOriginal = 0;
+        this.quantidade = 0;
+        this.percentagemImposto = 0;
+        this.percentagemDesconto = 0;
+    }
+
+    public LinhaEncomenda(String referencia, String descricao, int preco , int quantidade, int imposto , int desconto){
+        this.referencia = referencia;
+        this.descricaoProduto = descricao;
+        this.precoOriginal = preco;
+        this.quantidade = quantidade;
+        this.percentagemImposto = imposto;
+        this.percentagemDesconto = desconto;
+    }
 
     public LinhaEncomenda(LinhaEncomenda linha){
         this.referencia = linha.referencia;

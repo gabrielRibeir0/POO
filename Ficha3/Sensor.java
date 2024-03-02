@@ -14,10 +14,16 @@ public class Sensor {
         return false;
     }
 
-    public Sensor(){}
+    public Sensor(){
+        this.pressao = 0;
+    }
 
     public Sensor(double valor){
         this.pressao = valor;
+    }
+
+    public Sensor(Sensor sensor){
+        this.pressao = sensor.pressao;
     }
 
     public boolean equals(Object obj) {
