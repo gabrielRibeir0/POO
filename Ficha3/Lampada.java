@@ -23,9 +23,17 @@ public class Lampada {
         consumoTotal = 0;
     }
 
-    public Lampada(double consumo, double consumoTotal, int estado, LocalDateTime tempoCriacao, LocalDateTime tempoReset){
-        this.consumoAtual = consumo;
+    public Lampada(double consumoTotal, int estado, LocalDateTime tempoCriacao, LocalDateTime tempoReset){
         this.estado = estado;
+        if(this.estado == OFF){
+            this.consumoAtual = 0;
+        }
+        else if (this.estado == ON){
+            this.consumoAtual = consumoMaximo;
+        }
+        else{
+            this.consumoAtual = consumoEco;
+        }
         this.tempoCriacao = tempoCriacao;
         this.tempoReset = tempoReset;
         this.consumoTotal = consumoTotal;
