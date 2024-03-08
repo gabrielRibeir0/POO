@@ -1,3 +1,4 @@
+package Ficha3;
 public class LinhaEncomenda {
     private String referencia;
     private String descricaoProduto;

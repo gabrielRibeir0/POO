@@ -1,53 +1,41 @@
 public class Circulo {
-    private double x;
-    private double y;
+    private Ponto centro;
     private double raio;
 
     public Circulo(){
-        this.x = 0;
-        this.y = 0;
+        this.centro = new Ponto();
         this.raio = 0;
     }
 
-    public Circulo(double x, double y, double raio){
-        this.x = x;
-        this.y = y;
+    public Circulo(int x, int y, double raio){
+        this.centro = new Ponto(x, y);
         this.raio = raio;
     }
 
     public Circulo(Circulo circulo){
-        this.x = circulo.x;
-        this.y = circulo.y;
+        this.centro = new Ponto(circulo.centro);
         this.raio = circulo.raio;
     }
 
-    public double getX(){
-        return this.x;
-    }
-
-    public double getY(){
-        return this.y;
+    public Ponto getCentro(){
+        return this.centro.clone();
     }
 
     public double getRaio(){
         return this.raio;
     }
 
-    public void setX(double x){
-        this.x = x;
-    }
-
-    public void setY(double y){
-        this.y = y;
+    public void setCentro(Ponto ponto){
+        this.centro = new Ponto(ponto);
     }
 
     public void setRaio(double raio){
         this.raio = raio;
     }
 
-    public void alteraCentro(double x, double y){
-        this.x = x;
-        this.y = y;
+    public void alteraCentro(int x, int y){
+        this.centro.setX(x);
+        this.centro.setY(y);
     }
 
     public double calculaArea(){
@@ -68,11 +56,11 @@ public class Circulo {
         }
 
         Circulo circulo = (Circulo) obj;
-        return (circulo.x == this.x && circulo.y == this.y && circulo.raio == this.raio);
+        return (this.centro.equals(circulo.centro) && circulo.raio == this.raio);
     }
 
     public String toString(){
-        return "X: " + this.x + " | Y: " + this.y + " | Raio: " + this.raio;
+        return this.centro.toString() + " | Raio: " + this.raio;
     }
 
     public Circulo clone(){
