@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
 
-public class Lampada {
+public class MyLampada {
     private final int OFF = 0;
     private final int ON = 1;
     private final int ECO = 2;
@@ -14,7 +14,7 @@ public class Lampada {
     private LocalDateTime tempoCriacao;
     private LocalDateTime tempoReset;
 
-    public Lampada(){
+    public MyLampada(){
         this.consumoAtual = 0;
         this.estado = OFF;
         LocalDateTime tempo = LocalDateTime.now();
@@ -23,7 +23,7 @@ public class Lampada {
         consumoTotal = 0;
     }
 
-    public Lampada(double consumoTotal, int estado, LocalDateTime tempoCriacao, LocalDateTime tempoReset){
+    public MyLampada(double consumoTotal, int estado, LocalDateTime tempoCriacao, LocalDateTime tempoReset){
         this.estado = estado;
         if(this.estado == OFF){
             this.consumoAtual = 0;
@@ -39,7 +39,7 @@ public class Lampada {
         this.consumoTotal = consumoTotal;
     }
 
-    public Lampada(Lampada lampada){
+    public MyLampada(MyLampada lampada){
         this.consumoAtual = lampada.consumoAtual;
         this.estado = lampada.estado;
         this.tempoCriacao = lampada.tempoCriacao;
@@ -56,7 +56,7 @@ public class Lampada {
             return false;
         }
 
-        Lampada lampada = (Lampada) obj;
+        MyLampada lampada = (MyLampada) obj;
         return (this.consumoAtual == lampada.consumoAtual && this.consumoTotal == lampada.consumoTotal && this.estado == lampada.estado && this.tempoCriacao.equals(lampada.tempoCriacao) && this.tempoReset.equals(lampada.tempoReset));
     }
 
@@ -75,8 +75,8 @@ public class Lampada {
         return "Consumo: " + consumoAtual + " | Consumo Total: "+ consumoTotal + " | Estado: " + estadoStr + " | Data criação: " + this.tempoCriacao.toString() + " | Data último reset: " + this.tempoReset.toString();
     }
 
-    public Lampada clone(){
-        return new Lampada(this);
+    public MyLampada clone(){
+        return new MyLampada(this);
     }
 
     public void lampON(){
